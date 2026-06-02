@@ -152,7 +152,7 @@ function MenuDetail() {
           <h1
             className="
              text-3xl
-              md:text-7xl
+              md:text-5xl
 
               font-bold
 

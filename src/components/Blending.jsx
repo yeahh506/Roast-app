@@ -3,8 +3,14 @@ import { useMemo, useState } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { AnimatePresence } from "framer-motion";
 import Header from "./Header";
+import { useEffect } from "react";
 
 export default function Blending() {
+ {/*스크롤 조절*/}
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   // 🔥 핵심 1: 선언한 navigate를 하단 카드 클릭 이벤트에 확실하게 연결해 줍니다.
 const navigate = useNavigate();
 const [selectedBlend, setSelectedBlend] = useState(null);
@@ -92,23 +98,23 @@ const filteredBlends = useMemo(() => {
 
     <div className="bg-[#140d0b] text-white min-h-screen overflow-hidden">
      {/* HERO */}
-        <section className="max-w-7xl mx-auto px-6 pt-40 pb-16">
+       <section className="max-w-7xl mx-auto px-4 md:px-6 pt-28 md:pt-40 pb-6 md:pb-10">
 
         <div className="flex items-end justify-between gap-10 flex-wrap border-b border-[#3d2b22] pb-10">
 
             <div>
             <p className="text-[#b08a5a] tracking-[0.35em] uppercase text-s mb-5">
-                원두 아카이브
+                 Collection
             </p>
 
             <h1 className="text-4xl md:text-6xl font-light leading-tight text-[#f3eee8]">
-                Roastery Archive
+              Signature Blends
             </h1>
             </div>
 
             <p className="text-white/40 text-sm leading-[2] max-w-md">
-                산지와 향, 로스팅의 밀도를 기준으로
-                서로 다른 분위기의 원두를 기록합니다.
+                각 블렌드는 서로 다른 특징을 살려
+            특별한 풍미와 향을 완성합니다.
             </p>
 
         </div>
@@ -129,7 +135,6 @@ const filteredBlends = useMemo(() => {
 </motion.section>
 {/* FILTER */}
 <section className="max-w-7xl mx-auto px-6 pb-20">
-
   <div className="border border-[#3d2b22] bg-[#1a120f] p-8 md:p-12">
 
     <div className="flex flex-wrap items-center gap-4">
@@ -143,13 +148,17 @@ const filteredBlends = useMemo(() => {
           key={taste}
           onClick={() => setTasteFilter(taste)}
           className={`
-            px-5 py-3
-            border
-            text-xs
-            tracking-[0.25em]
-            uppercase
-            duration-300
+                      px-2 md:px-5
+                      py-2 md:py-3
+                      text-[11px]
+                      md:text-xs
 
+                      tracking-[0.1em]
+                      md:tracking-[0.2em]
+
+                      uppercase
+                      border
+                      duration-300
             ${
               tasteFilter === taste
                 ? "bg-[#b08a5a] text-black border-[#b08a5a]"
@@ -168,23 +177,6 @@ const filteredBlends = useMemo(() => {
 </section>
       {/* BLEND LIST */}
       <section className="max-w-7xl mx-auto px-6 pb-32">
-        <div className="flex items-end justify-between mb-16 gap-6 flex-wrap">
-          <div>
-            <p className="text-cyan-300 uppercase tracking-[0.3em] text-sm mb-4">
-              Collection
-            </p>
-
-            <h2 className="text-4xl font-bold">
-              Signature Blends
-            </h2>
-          </div>
-
-          <p className="text-white/50 max-w-lg leading-relaxed">
-            각 블렌드는 서로 다른 특징을 살려
-            특별한 풍미와 향을 완성합니다.
-          </p>
-        </div>
-
         <div className="grid lg:grid-cols-2 gap-[1px] ">
            {filteredBlends.map((blend) => (
                 <div
@@ -208,20 +200,52 @@ const filteredBlends = useMemo(() => {
                         {blend.subtitle}
                     </p>
 
-                    <h2 className="text-4xl md:text-5xl font-light tracking-wide">
+                      <h2
+                        className="
+                          text-xl
+                          md:text-4xl
+
+                          font-light
+                          leading-tight
+
+                          mb-1
+                        "
+                      >
                         {blend.name}
-                    </h2>
+                      </h2>
                     </div>
 
                     <span
-                    className="w-3 h-3 rounded-full mt-4"
-                    style={{ backgroundColor: blend.color }}
-                    />
-                </div>
+                      className="
+                        w-3 h-3
+                        md:w-4 md:h-4
 
-                <p className="text-white/60 leading-loose text-sm max-w-xl mb-10">
+                        rounded-full
+                        mt-2
+                        shrink-0
+                      "
+                      style={{ backgroundColor: blend.color }}
+                    />
+                  </div>
+
+                  <p
+                    className="
+                      text-white/60
+
+                      text-sm
+                      md:text-base
+
+                      leading-relaxed
+                      md:leading-loose
+
+                      max-w-xl
+
+                      mb-6
+                      md:mb-10
+                    "
+                  >
                     {blend.desc}
-                </p>
+                  </p>
 
                 <div
                     className="text-xs tracking-[0.25em] uppercase"
@@ -255,34 +279,44 @@ const filteredBlends = useMemo(() => {
 
                     {/* 양피지 */}
                    <motion.div
-                      initial={{
-                        opacity: 0,
-                        scale: 0.99,
-                      }}
-                      animate={{
-                        opacity: 1,
-                        scale: 1,
-                      }}
-                      exit={{
-                        opacity: 0,
-                        scale: 0.99,
-                      }}
-                      transition={{
-                        duration: 0.2,
-                        ease: "easeOut",
-                      }}
-                      className="
-                        relative
-                        w-[90%]
-                        max-w-3xl
-                        bg-[#1b1411]
-                        p-14
-                        shadow-[0_0_80px_rgba(0,0,0,0.7)]
-                        border
-                        border-[#4d3728]
-                        overflow-hidden
-                      "
-                    >
+  initial={{
+    opacity: 0,
+    scale: 0.99,
+  }}
+  animate={{
+    opacity: 1,
+    scale: 1,
+  }}
+  exit={{
+    opacity: 0,
+    scale: 0.99,
+  }}
+  transition={{
+    duration: 0.2,
+    ease: "easeOut",
+  }}
+  className="
+    relative
+
+    w-[95%]
+    md:w-[90%]
+
+    max-w-4xl
+
+    max-h-[90vh]
+    overflow-y-auto
+
+    bg-[#1b1411]
+
+    p-4
+    md:p-10
+
+    shadow-[0_0_80px_rgba(0,0,0,0.7)]
+
+    border
+    border-[#4d3728]
+  "
+>
                       
                       {/* texture */}
                       <div className="absolute inset-0 opacity-[0.05] bg-[url('https://www.transparenttextures.com/patterns/rice-paper-3.png')]" />
@@ -290,14 +324,24 @@ const filteredBlends = useMemo(() => {
                       <div className="grid md:grid-cols-2">
 
                         {/* IMAGE */}
-                        <div className="h-[320px] md:h-full overflow-hidden">
-                          <img
-                            src={selectedBlend?.image}
-                            alt={selectedBlend.name}
-                            className="w-full h-full object-cover"
-                          />
-                        </div>
+                        <div
+  className="
+    h-[180px]
+    md:h-[320px]
 
+    overflow-hidden
+  "
+>
+  <img
+    src={selectedBlend?.image}
+    alt={selectedBlend.name}
+    className="
+      w-full
+      h-full
+      object-cover
+    "
+  />
+</div>
                         {/* CONTENT */}
                         <div className="relative z-10 p-10 md:p-14">
 
@@ -308,14 +352,35 @@ const filteredBlends = useMemo(() => {
                             {selectedBlend.subtitle}
                           </p>
 
-                          <h2 className="text-4xl font-light mb-8">
-                            {selectedBlend.name}
-                          </h2>
+                          <h2
+  className="
+    text-2xl
+    md:text-4xl
 
-                          <p className="text-white/60 leading-[2.1] text-sm mb-10">
-                            {selectedBlend.desc}
-                          </p>
+    font-light
 
+    mb-4
+    md:mb-8
+  "
+>
+  {selectedBlend.name}
+</h2>
+
+                          <p
+  className="
+    text-white/60
+
+    leading-relaxed
+    md:leading-[2.1]
+
+    text-sm
+
+    mb-6
+    md:mb-10
+  "
+>
+  {selectedBlend.desc}
+</p>
                           <div
                             className="text-xs tracking-[0.25em] uppercase mb-12"
                             style={{ color: selectedBlend.color }}
@@ -361,33 +426,38 @@ const filteredBlends = useMemo(() => {
                           </button>
 
                           {/* CLOSE */}
-                          <button
-                          onClick={() => setSelectedBlend(null)}
-                          className="
-                            absolute
-                            top-6
-                            right-6
+                         <button
+  onClick={() => setSelectedBlend(null)}
+  className="
+    absolute
 
-                            w-12
-                            h-12
+    top-3
+    right-3
 
-                            flex
-                            items-center
-                            justify-center
+    md:top-5
+    md:right-5
 
-                            text-4xl
-                            text-white/70
+    w-10
+    h-10
 
-                            hover:rotate-90
-                            hover:text-amber-200
+    flex
+    items-center
+    justify-center
 
-                            transition-all
-                            duration-500
-                            ease-in-out
-                          "
-                        >
-                          ×
-                        </button>
+    text-2xl
+    md:text-4xl
+
+    text-white/70
+
+    hover:rotate-90
+    hover:text-amber-200
+
+    transition-all
+    duration-500
+  "
+>
+  ×
+</button>
 
                         </div>
                       </div>

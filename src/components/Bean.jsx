@@ -1,7 +1,13 @@
 import { useMemo, useState } from "react";
 import Header from "./Header";
+import { useEffect } from "react";
 
 export default function Bean() {
+
+   {/*스크롤 조절*/}
+    useEffect(() => {
+      window.scrollTo(0, 0);
+    }, []);
   const beans = [
     {
       id: 1,
@@ -198,7 +204,7 @@ export default function Bean() {
       <Header />
 
       {/* HERO */}
-       <section className="max-w-7xl mx-auto px-4 md:px-6 pt-28 md:pt-40 pb-12 md:pb-16">
+       <section className="max-w-7xl mx-auto px-4 md:px-6 pt-28 md:pt-40 pb-6 md:pb-10">
 
         <div className="flex items-end justify-between gap-10 flex-wrap border-b border-[#3d2b22] pb-10">
 
@@ -224,8 +230,7 @@ export default function Bean() {
       {/* FILTER */}
       <section className="max-w-7xl mx-auto px-6 pb-20">
         <div className="border border-[#3d2b22] bg-[#1a120f] p-8 md:p-12">
-
-          <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-16">
+          <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-6">
 
             {/* COUNTRY */}
             <div>
@@ -233,13 +238,25 @@ export default function Bean() {
                 Country
               </p>
 
-              <div className="flex gap-3 overflow-x-auto  whitespace-nowrap  pb-2">
+              <div className="flex flex-wrap gap-3 overflow-x-auto">
                 {countries.map((country) => (
                   <button
                     key={country}
                     onClick={() => setCountryFilter(country)}
                     className={`
-                      px-5 py-3 text-xs tracking-[0.2em] uppercase border duration-300
+                      px-2 md:px-5
+                      py-2 md:py-3
+
+                      text-[11px]
+                      md:text-xs
+
+                      tracking-[0.1em]
+                      md:tracking-[0.2em]
+
+                      uppercase
+                      border
+                      duration-300
+
                       ${
                         countryFilter === country
                           ? "bg-[#b08a5a] text-black border-[#b08a5a]"
@@ -265,7 +282,19 @@ export default function Bean() {
                     key={taste}
                     onClick={() => setTasteFilter(taste)}
                     className={`
-                      px-5 py-3 text-xs tracking-[0.2em] uppercase border duration-300
+                      px-3 md:px-5
+                      py-2 md:py-3
+
+                      text-[11px]
+                      md:text-xs
+
+                      tracking-[0.1em]
+                      md:tracking-[0.2em]
+
+                      uppercase
+                      border
+                      duration-300
+
                       ${
                         tasteFilter === taste
                           ? "bg-[#b08a5a] text-black border-[#b08a5a]"
@@ -296,15 +325,50 @@ export default function Bean() {
               <div className="flex justify-between items-start mb-12 gap-8">
 
                 <div>
-                  <p className="text-[#b08a5a] text-xs tracking-[0.35em] uppercase mb-4">
+                  <p
+                    className="
+                      text-[#d6b98c]
+                      font-medium
+                      md:text-s
+                      
+                      tracking-[0.2em]
+                      md:tracking-[0.35em]
+
+                      uppercase
+                      mb-2 md:mb-4
+                    "
+                  >
                     {bean.country}
                   </p>
 
-                  <h2 className="text-3xl md:text-4xl font-light leading-[1.4] mb-5">
+                  <h2
+                    className="
+                      text-xl
+                      sm:text-2xl
+                      md:text-4xl
+
+                      font-light
+                      leading-[1.3]
+
+                      mb-2 md:mb-5
+                    "
+                  >
                     {bean.name}
                   </h2>
 
-                  <p className="text-white/35 text-sm tracking-[0.2em] uppercase">
+                  <p
+                    className="
+                      text-white/35
+
+                      text-xs
+                      md:text-sm
+
+                      tracking-[0.1em]
+                      md:tracking-[0.2em]
+
+                      uppercase
+                    "
+                  >
                     {bean.roast}
                   </p>
                 </div>

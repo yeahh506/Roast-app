@@ -10,7 +10,7 @@ function Menu() {
       name:'에티오피아 예가체프',
       desc:'꽃향과 산미가 매력적인 원두',
       price:'18,000원',
-      img:'/bean1.jpg'
+      img:'/img (9).jpg'
     }  ]; 
 
    {/* {
