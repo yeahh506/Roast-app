@@ -1,0 +1,67 @@
+@import "tailwindcss";
+
+
+/* 무한 슬라이드 */
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+/* 기본 애니메이션 */
+.scroll {
+  animation: scroll 50s linear infinite;
+}
+/* hover 시 멈춤 */
+.scroll:hover ,
+.scroll-reverse:hover {
+  animation-play-state: paused;
+}
+
+/*  핵심: 양쪽 fade 효과 */
+.mask-fade {
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent,
+    black 10%,
+    black 90%,
+    transparent
+  );
+
+  mask-image: linear-gradient(
+    to right,
+    transparent,
+    black 10%,
+    black 90%,
+    transparent
+  );
+}
+
+
+
+.scroll-reverse {
+  animation: scrollReverse 50s linear infinite;
+}
+
+@keyframes scroll {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes scrollReverse {
+  from {
+    transform: translateX(-50%);
+  }
+
+  to {
+    transform: translateX(0);
+  }
+}
