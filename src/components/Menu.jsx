@@ -11,9 +11,9 @@ function Menu() {
       desc:'꽃향과 산미가 매력적인 원두',
       price:'18,000원',
       img:'/bean1.jpg'
-    },
+    }  ]; 
 
-    {
+   {/* {
       id:2,
       name:'콜롬비아 수프리모',
       desc:'부드럽고 고소한 밸런스',
@@ -27,8 +27,8 @@ function Menu() {
       desc:'과일향과 진한 바디감',
       price:'20,000원',
       img:'/bean3.jpg'
-    }
-  ];
+    }*/}
+
 
   return (
     <section
@@ -59,7 +59,7 @@ function Menu() {
           TODAY'S BEANS
         </h2>
 
-        <div className="grid grid-cols-3 md:grid-cols-3 gap-4 md:gap-10">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-10">
 
           {beanList.map((bean, index) => (
 

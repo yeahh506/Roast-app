@@ -1,6 +1,6 @@
 import { useParams } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
-
+import { useEffect } from "react";
 const data = [
   {
     id: 1, src: "/img (9).jpg",title: "에티오피아-예가체프 | Ethiopia-Yirgacheffe",desc: "탠저린 | 캐슈넛 | 맥아 | 꽃향",
@@ -191,7 +191,10 @@ function GalleryDetail() {
   const item = data.find((d) => d.id === Number(id));
 
   if (!item) return <div className="min-h-screen bg-[#1e1e1e] text-white flex justify-center items-center">존재하지 않는 페이지입니다.</div>;
-
+ {/*스크롤 조절*/}
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
     // 🔥 변경 포인트 1: flex, flex-col, justify-center를 주어 내부 요소들을 화면의 세로 중앙으로 정렬합니다.
       <div className="
@@ -301,41 +304,31 @@ function GalleryDetail() {
             ))}
           </div>
 
+          <div className="mt-10 flex justify-center md:justify-start">
           <button
-          onClick={() => navigate(-1)}
-          className="
-            fixed
-            top-24
-            right-4
-            md:top-10
-            md:right-10
+            onClick={() => navigate(item.orderLink)}
+            className="
+              px-8
+              py-4
 
-            z-50
+              border
+              border-white
 
-            inline-block
-            origin-center
+              text-white
+              font-medium
 
-            text-3xl
-            md:text-4xl
+              tracking-wider
 
-            text-white
-            bg-black/40
-            backdrop-blur-sm
+              hover:bg-white
+              hover:text-[#1e1e1e]
 
-            w-12
-            h-12
-
-            rounded-full
-
-            hover:rotate-90
-            hover:text-amber-200
-
-            transition-all
-            duration-500
-          "
-        >
-          ×
-        </button>
+              transition-all
+              duration-300
+            "
+          >
+            주문하기
+          </button>
+        </div>
         </div>
 
       </div>
