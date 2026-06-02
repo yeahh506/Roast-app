@@ -32,15 +32,21 @@ function Menu() {
 
   return (
     <section
-      id="menu"
-      className="py-32 px-6 bg-[#1b1512]"
-    >
+  id="menu"
+  className="
+    py-16
+    md:py-32
+    px-4
+    md:px-6
+    bg-[#1b1512]
+  "
+>
 
       <div className="max-w-7xl mx-auto">
 
         <h2
           className="
-            text-5xl
+            text-3xl md:text-5xl
             font-bold
             text-center
             mb-20
@@ -53,7 +59,7 @@ function Menu() {
           TODAY'S BEANS
         </h2>
 
-        <div className="grid md:grid-cols-3 gap-10">
+        <div className="grid grid-cols-3 md:grid-cols-3 gap-4 md:gap-10">
 
           {beanList.map((bean, index) => (
 
@@ -85,10 +91,9 @@ function Menu() {
                   alt={bean.name}
                   className="
                     w-full
-                    h-72
-
+                    h-40
+                    md:h-72
                     object-cover
-
                     hover:scale-105
                     duration-500
                   "
@@ -96,19 +101,19 @@ function Menu() {
               </div>
 
               {/* 텍스트 */}
-             <div className="p-8">
+            <div className="p-4 md:p-8">
 
-              <h3 className="text-2xl font-bold mb-3 text-[#f3e7d0]">
+              <h3 className="text-lg md:text-2xl font-bold mb-2 md:mb-3 text-[#f3e7d0]">
                   {bean.name}
                 </h3>
 
-                <p className="text-[#b8a58a] mb-6 leading-relaxed">
+                <p className="text-sm md:text-base text-[#b8a58a] mb-4 md:mb-6 leading-relaxed">
                   {bean.desc}
                 </p>
 
                 <div className="flex items-center justify-between">
 
-                  <p className="font-bold text-xl text-[#d6b98c]">
+                 <p className="font-bold text-base md:text-xl text-[#d6b98c]">
                     {bean.price}
                   </p>
 

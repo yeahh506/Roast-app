@@ -214,34 +214,42 @@ function GalleryDetail() {
       
       {/* 닫기 버튼 */}
       <button
-          onClick={() => navigate(-1)}
-          className="
-            absolute
-            top-16
-            right-10
+        onClick={() => navigate(-1)}
+        className="
+          fixed
+          top-24
+          right-4
+          md:top-10
+          md:right-10
 
-            /* 💡 핵심: 텍스트가 제자리에서 예쁘게 돌 수 있도록 블록화 및 중심축 고정 */
-            inline-block
-            origin-center
+          z-50
 
-            text-4xl
-            text-white/70
+          inline-block
+          origin-center
 
-            /* 🔥 호버 상태: 90도 회전 및 색상 변경 */
-            hover:rotate-90
-            hover:text-amber-200
+          text-3xl
+          md:text-4xl
 
-            /* 회전 애니메이션 속도와 궤적(ease-out으로 부드럽게 감속) 설정 */
-            transition-all
-            duration-500
-            ease-out
-          "
-        >
-          ×
-        </button>
+          text-white
+          bg-black/40
+          backdrop-blur-sm
+
+          w-12
+          h-12
+
+          rounded-full
+
+          hover:rotate-90
+          hover:text-amber-200
+
+          transition-all
+          duration-500
+        "
+      >
+        ×
+      </button>
       
       {/* 본문 콘텐츠 박스 */}
-      {/* 🔥 변경 포인트 2: w-full을 추가하여 내부 flex 레이아웃이 6xl 규격 안에서 정상적으로 깨지지 않게 잡아줍니다. */}
       <div
         className="
           w-full
@@ -251,34 +259,35 @@ function GalleryDetail() {
           flex-col
           md:flex-row
           items-center
-          gap-16
+          gap-8 md:gap-16
         "
       >
         
         {/* 이미지 섹션 */}
         <div className="flex-1 flex justify-center md:justify-end">
-          <img
-            src={item.src}
-            alt={item.title}
-            className="
-              w-[80vw]
-              max-w-[320px]
+         <img
+          src={item.src}
+          alt={item.title}
+          className="
+            w-[85vw]
+            max-w-[320px]
 
-              h-[45vh]
-              md:w-full
-              md:max-w-[500px]
-              md:h-[600px]
+            h-[300px]
 
-              object-cover
-              rounded-3xl
-              shadow-2xl
-            "
-          />
+            md:w-full
+            md:max-w-[500px]
+            md:h-[600px]
+
+            object-cover
+            rounded-3xl
+            shadow-2xl
+          "
+        />
         </div>
 
         {/* 설명 섹션 */}
         <div className="flex-1 w-full text-center md:text-left">
-          <h1 className="text-5xl font-bold mb-8">
+          <h1 className="text-2xl md:text-5xl font-bold mb-8">
             {item.title}
           </h1>
 
@@ -293,37 +302,40 @@ function GalleryDetail() {
           </div>
 
           <button
-            onClick={() => navigate(item.orderLink)}
-            className="
-              mt-10
-              w-fit
+          onClick={() => navigate(-1)}
+          className="
+            fixed
+            top-24
+            right-4
+            md:top-10
+            md:right-10
 
-              px-8
-              py-4
+            z-50
 
-              /* 기본 상태: 배경 투명, 테두리 흰색, 글자 흰색 */
-              bg-transparent
-              border
-              border-white
-              text-white
+            inline-block
+            origin-center
 
-              font-medium
-              tracking-wider
-              uppercase
-              text-sm
+            text-3xl
+            md:text-4xl
 
-              /* 호버 상태: 배경 흰색, 글자 검은색 */
-              hover:bg-white
-              hover:text-[#1e1e1e]
+            text-white
+            bg-black/40
+            backdrop-blur-sm
 
-              /* 애니메이션 속도 및 부드러운 변화 설정 */
-              transition-all
-              duration-300
-              ease-in-out
-            "
-          >
-            주문하기
-          </button>
+            w-12
+            h-12
+
+            rounded-full
+
+            hover:rotate-90
+            hover:text-amber-200
+
+            transition-all
+            duration-500
+          "
+        >
+          ×
+        </button>
         </div>
 
       </div>

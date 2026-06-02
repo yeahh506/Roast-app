@@ -40,17 +40,58 @@ function Gallery() {
   <div className="space-y-3">
     {/* 줄별 타이틀 */}
     <div className="max-w-7xl mx-auto px-4">
-      <h3 className="text-xl text-white/50 uppercase tracking-[0.3em] font-light">
+      <h3
+        className="
+          text-sm
+          md:text-xl
+          text-white/50
+          uppercase
+          tracking-[0.2em]
+          md:tracking-[0.3em]
+          font-light
+        "
+      >
         {title}
       </h3>
     </div>
 
     {/* 무한 스크롤 컨테이너 */}
+    <div className="md:hidden px-4">
+      <div className="grid grid-cols-2 gap-4">
+        {data.map((img) => (
+          <div
+            key={img.id}
+            onClick={() => navigate(`/gallery/${img.id}`)}
+            className="
+              relative
+              h-40
+              overflow-hidden
+              rounded-3xl
+              cursor-pointer
+            "
+          >
+            <img
+              src={img.src}
+              alt=""
+              className="w-full h-full object-cover"
+            />
+
+            <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
+              <span className="text-white text-sm text-center px-2">
+                {img.title}
+              </span>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+    <div className="hidden md:block">
     <div className="overflow-x-hidden overflow-y-visible py-10 max-w-7xl mx-auto px-4 [mask-image:linear-gradient(to_right,transparent_0%,black_10%,black_90%,transparent_100%)]">
       <div
         className={`
           flex
-          gap-8
+          gap-4
+          md:gap-8
           w-max
 
           ${reverse ? "scroll-reverse" : "scroll"}
@@ -65,12 +106,15 @@ function Gallery() {
               group
               relative
 
-              min-w-[300px]
-              h-80
+              min-w-[220px]
+              md:min-w-[300px]
+
+              h-56
+              md:h-80
               ${
                 reverse
-                  ? "rounded-tr-[80px] rounded-bl-[80px]"
-                  : "rounded-tl-[80px] rounded-br-[80px]"
+                  ? "rounded-tr-[40px] rounded-bl-[40px] md:rounded-tr-[80px] md:rounded-bl-[80px]"
+                  : "rounded-tl-[40px] rounded-br-[40px] md:rounded-tl-[80px] md:rounded-br-[80px]"
               }
               overflow-hidden
               shrink-0
@@ -101,8 +145,9 @@ function Gallery() {
                 bg-black/60 
                 
                 /* 기본 상태는 투명하다가 호버 시에만 선명해짐 */
-                opacity-0 
-                group-hover:opacity-100 
+                opacity-100
+                md:opacity-0
+                md:group-hover:opacity-100
                 
                 flex 
                 flex-col 
@@ -118,7 +163,8 @@ function Gallery() {
               <p 
                 className="
                   text-white 
-                  text-xl 
+                  text-base
+                  md:text-xl
                   font-medium 
                   tracking-wide
                   
@@ -132,29 +178,31 @@ function Gallery() {
                 {img.title || `${title} Blend ${img.id}`}
               </p>
               
-              <span className="text-xs text-white/50 tracking-[0.2em] uppercase mt-2 opacity-0 group-hover:opacity-100 transition-opacity delay-100 duration-300">
+              <span className="text-[10px] md:text-xs text-white/50 tracking-[0.2em] uppercase mt-2 opacity-0 group-hover:opacity-100 transition-opacity delay-100 duration-300">
                 View Detail
               </span>
             </div>
-
           </div>
         ))}
       </div>
     </div>
   </div>
+</div>
 );
 
   return (
-    <section id="gallery" className="py-32 bg-[#1e1e1e]">
+   <section id="gallery" className="py-16 md:py-32 bg-[#1e1e1e]">
       <div className="w-full">
         {/* 메인 타이틀 */}
         <h2
           className="
-            text-5xl
+            text-3xl
+            md:text-5xl
             text-white
             font-bold
             text-center
-            mb-24
+            mb-12
+            md:mb-24
             tracking-wide
           "
         >
