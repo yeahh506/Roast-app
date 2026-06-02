@@ -191,29 +191,15 @@ function GalleryDetail() {
   const item = data.find((d) => d.id === Number(id));
 
   if (!item) return <div className="min-h-screen bg-[#1e1e1e] text-white flex justify-center items-center">존재하지 않는 페이지입니다.</div>;
- {/*스크롤 조절*/}
+ 
+  {/*스크롤 조절*/}
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
+ 
   return (
     // 🔥 변경 포인트 1: flex, flex-col, justify-center를 주어 내부 요소들을 화면의 세로 중앙으로 정렬합니다.
-      <div className="
-      min-h-screen
-      bg-[#1e1e1e]
-      text-white
-
-      px-4 md:px-10
-
-      mt-16 md:mt-0
-
-      relative
-
-      flex
-      flex-col
-      justify-center
-      items-center
-    "
-  >
+       <div className="min-h-screen bg-[#1e1e1e] text-white pt-32 md:pt-40 pb-16 px-4 md:px-10 overflow-hidden relative">
       
       {/* 닫기 버튼 */}
       <button
@@ -272,18 +258,16 @@ function GalleryDetail() {
           src={item.src}
           alt={item.title}
           className="
-            w-[85vw]
-            max-w-[320px]
+            w-full
 
-            h-[300px]
+              max-w-[320px]
+              h-[320px]
 
-            md:w-full
-            md:max-w-[500px]
-            md:h-[600px]
+              md:max-w-[500px]
+              md:h-[600px]
 
-            object-cover
-            rounded-3xl
-            shadow-2xl
+              object-cover
+              rounded-3xl
           "
         />
         </div>

@@ -59,7 +59,7 @@ function Menu() {
           TODAY'S BEANS
         </h2>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-10">
+       <div className="max-w-4xl mx-auto">
 
           {beanList.map((bean, index) => (
 
@@ -68,6 +68,9 @@ function Menu() {
               onClick={() => navigate(`/menu/${bean.id}`)}
                className="
                   bg-[#2a211c]
+
+                  md:flex
+                  md:items-center
 
                   rounded-3xl
                   overflow-hidden
@@ -85,14 +88,14 @@ function Menu() {
             >
 
               {/* 이미지 */}
-              <div className="overflow-hidden">
+              <div className="overflow-hidden md:w-1/2">
                 <img
                   src={bean.img}
                   alt={bean.name}
                   className="
                     w-full
                     h-40
-                    md:h-72
+                    md:h-[500px]
                     object-cover
                     hover:scale-105
                     duration-500
@@ -101,19 +104,19 @@ function Menu() {
               </div>
 
               {/* 텍스트 */}
-            <div className="p-4 md:p-8">
+            <div className="p-6 md:p-12 md:w-1/2">
 
-              <h3 className="text-lg md:text-2xl font-bold mb-2 md:mb-3 text-[#f3e7d0]">
+              <h3 className="text-lg md:text-4xl font-bold mb-4 text-[#f3e7d0]">
                   {bean.name}
                 </h3>
 
-                <p className="text-sm md:text-base text-[#b8a58a] mb-4 md:mb-6 leading-relaxed">
+                <p className="text-base md:text-lg text-[#b8a58a] mb-8 leading-relaxed">
                   {bean.desc}
                 </p>
 
                 <div className="flex items-center justify-between">
 
-                 <p className="font-bold text-base md:text-xl text-[#d6b98c]">
+                <p className="font-bold text-2xl md:text-4xl text-[#d6b98c]">
                     {bean.price}
                   </p>
 

@@ -25,7 +25,7 @@ function Gallery() {
     { id: 18, src: "/img (7).jpg" ,title: "스페셜 그린"},
     { id: 19, src: "/img (14).jpg" ,title: "퓨어 엘로우"}, 
     { id: 20, src: "/img (16).jpg" ,title: "시그니처 골드"},
-    { id: 21, src: "/img (20).jpg" ,title: "인디아 카피로얄"},
+    { id: 21, src: "/img (20).jpg" ,title: "인디아 카피로열"},
   ];
 
   // 2. 🔥 각 줄에 들어갈 타이틀, 방향, 이미지 데이터를 그룹화합니다.
@@ -77,7 +77,7 @@ function Gallery() {
             />
 
             <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
-              <span className="text-white text-sm text-center px-2">
+              <span className="text-white text-lg text-center px-2">
                 {img.title}
               </span>
             </div>

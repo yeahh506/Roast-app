@@ -27,7 +27,7 @@ export default function Bean() {
     },
     {
       id: 3,
-      name: "Ethiopia 아라차",
+      name: "Ethiopia 아리차",
       country: "Afirca",
       taste: "고소",
       roast: "Medium Dark",
@@ -198,7 +198,7 @@ export default function Bean() {
       <Header />
 
       {/* HERO */}
-        <section className="max-w-7xl mx-auto px-6 pt-40 pb-16">
+       <section className="max-w-7xl mx-auto px-4 md:px-6 pt-28 md:pt-40 pb-12 md:pb-16">
 
         <div className="flex items-end justify-between gap-10 flex-wrap border-b border-[#3d2b22] pb-10">
 
@@ -207,12 +207,12 @@ export default function Bean() {
                 원두 아카이브
             </p>
 
-            <h1 className="text-4xl md:text-6xl font-light leading-tight text-[#f3eee8]">
+            <h1 className="text-3xl md:text-6xl font-light leading-tight text-[#f3eee8]">
                 Roastery Archive
             </h1>
             </div>
 
-            <p className="text-white/40 text-sm leading-[2] max-w-md">
+            <p className="text-white/40 text-sm leading-[2] max-w-md text-s md:text-sm">
                 산지와 향, 로스팅의 밀도를 기준으로
                 서로 다른 분위기의 원두를 기록합니다.
             </p>
@@ -233,7 +233,7 @@ export default function Bean() {
                 Country
               </p>
 
-              <div className="flex flex-wrap gap-3">
+              <div className="flex gap-3 overflow-x-auto  whitespace-nowrap  pb-2">
                 {countries.map((country) => (
                   <button
                     key={country}
@@ -291,7 +291,7 @@ export default function Bean() {
           {filteredBeans.map((bean) => (
             <div
               key={bean.id}
-              className="group bg-[#140d0b] p-10 md:p-14 hover:bg-[#1b1411] duration-500"
+              className="group bg-[#140d0b] p-5 md:p-14 hover:bg-[#1b1411] duration-500"
             >
               <div className="flex justify-between items-start mb-12 gap-8">
 
