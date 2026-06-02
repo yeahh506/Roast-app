@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 
-/* ¹«ÇÑ ½½¶óÀÌµå */
+/* ë¬´í•œ ìŠ¬ë¼ì´ë“œ */
 @keyframes scroll {
   0% {
     transform: translateX(0);
@@ -11,17 +11,17 @@
   }
 }
 
-/* ±âº» ¾Ö´Ï¸ŞÀÌ¼Ç */
+/* ê¸°ë³¸ ì• ë‹ˆë©”ì´ì…˜ */
 .scroll {
   animation: scroll 50s linear infinite;
 }
-/* hover ½Ã ¸ØÃã */
+/* hover ì‹œ ë©ˆì¶¤ */
 .scroll:hover ,
 .scroll-reverse:hover {
   animation-play-state: paused;
 }
 
-/*  ÇÙ½É: ¾çÂÊ fade È¿°ú */
+/*  í•µì‹¬: ì–‘ìª½ fade íš¨ê³¼ */
 .mask-fade {
   -webkit-mask-image: linear-gradient(
     to right,
