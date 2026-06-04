@@ -6,42 +6,25 @@ function Menu() {
 
   const beanList = [
     {
-      id:1,
-      name:'에티오피아 예가체프',
-      desc:'꽃향과 산미가 매력적인 원두',
-      price:'18,000원',
-      img:'/img (9).jpg'
-    }  ]; 
-
-   {/* {
-      id:2,
-      name:'콜롬비아 수프리모',
-      desc:'부드럽고 고소한 밸런스',
-      price:'16,000원',
-      img:'/bean2.jpg'
-    },
-
-    {
-      id:3,
-      name:'케냐 AA',
-      desc:'과일향과 진한 바디감',
-      price:'20,000원',
-      img:'/bean3.jpg'
-    }*/}
-
+      id: 1,
+      name: '에티오피아 예가체프',
+      desc: '꽃향과 산미가 매력적인 원두',
+      price: '18,000원',
+      img: '/img (9).jpg'
+    }
+  ];
 
   return (
     <section
-  id="menu"
-  className="
-    py-16
-    md:py-32
-    px-4
-    md:px-6
-    bg-[#1b1512]
-  "
->
-
+      id="menu"
+      className="
+        py-16
+        md:py-32
+        px-4
+        md:px-6
+        bg-[#1b1512]
+      "
+    >
       <div className="max-w-7xl mx-auto">
 
         <h2
@@ -56,17 +39,17 @@ function Menu() {
             text-[#d6b98c]
           "
         >
-          TODAY'S BEANS
+          THIS MONTH'S BEAN
         </h2>
 
-       <div className="max-w-4xl mx-auto">
+        <div className="max-w-4xl mx-auto">
 
           {beanList.map((bean, index) => (
 
             <div
               key={index}
               onClick={() => navigate(`/menu/${bean.id}`)}
-               className="
+              className="
                   bg-[#2a211c]
 
                   md:flex
@@ -94,7 +77,7 @@ function Menu() {
                   alt={bean.name}
                   className="
                     w-full
-                    h-40
+                    h-65
                     md:h-[500px]
                     object-cover
                     hover:scale-105
@@ -104,9 +87,9 @@ function Menu() {
               </div>
 
               {/* 텍스트 */}
-            <div className="p-6 md:p-12 md:w-1/2">
+              <div className="p-6 md:p-12 md:w-1/2">
 
-              <h3 className="text-lg md:text-4xl font-bold mb-4 text-[#f3e7d0]">
+                <h3 className="text-xl md:text-4xl font-bold mb-4 text-[#f3e7d0]">
                   {bean.name}
                 </h3>
 
@@ -116,7 +99,7 @@ function Menu() {
 
                 <div className="flex items-center justify-between">
 
-                <p className="font-bold text-2xl md:text-4xl text-[#d6b98c]">
+                  <p className="font-bold text-2xl md:text-4xl text-[#d6b98c]">
                     {bean.price}
                   </p>
 

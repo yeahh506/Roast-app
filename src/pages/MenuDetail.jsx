@@ -153,11 +153,8 @@ function MenuDetail() {
             className="
              text-3xl
               md:text-5xl
-
               font-bold
-
               leading-tight
-
               mb-6
             "
           >

@@ -373,12 +373,18 @@ export default function Bean() {
                   </p>
                 </div>
 
-                <div className="w-20 h-20 border border-[#4d3728] p-1 overflow-hidden shrink-0">
-                  <img
-                    src={bean.image}
-                    alt={bean.name}
-                    className="w-full h-full object-cover opacity-80 group-hover:opacity-100 duration-500"
-                  />
+                <div className="flex flex-col items-center gap-2 shrink-0">
+                  <div className="w-20 h-20 border border-[#4d3728] p-1 overflow-hidden">
+                    <img
+                      src={bean.image}
+                      alt={bean.name}
+                      className="w-full h-full object-cover opacity-80 group-hover:opacity-100 duration-500"
+                    />
+                  </div>
+                  <span className="text-white/50 text-xs tracking-[0.25em] uppercase">
+                    {bean.taste}
+                  </span>
+                  
                 </div>
               </div>
 
@@ -389,10 +395,6 @@ export default function Bean() {
               <div className="flex items-center justify-between flex-wrap gap-6">
                 <span className="text-[#b08a5a] text-xs tracking-[0.3em] uppercase">
                   {bean.note}
-                </span>
-
-                <span className="text-white/25 text-xs tracking-[0.25em] uppercase">
-                  {bean.taste}
                 </span>
               </div>
             </div>

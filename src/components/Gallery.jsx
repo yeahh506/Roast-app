@@ -42,7 +42,7 @@ function Gallery() {
     <div className="max-w-7xl mx-auto px-4">
       <h3
         className="
-          text-sm
+          text-xl
           md:text-xl
           text-white/50
           uppercase
@@ -77,7 +77,7 @@ function Gallery() {
             />
 
             <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
-              <span className="text-white text-lg text-center px-2">
+              <span className="text-white/80 text-lg text-center px-2">
                 {img.title}
               </span>
             </div>
@@ -93,7 +93,6 @@ function Gallery() {
           gap-4
           md:gap-8
           w-max
-
           ${reverse ? "scroll-reverse" : "scroll"}
         `}
       >
