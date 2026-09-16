@@ -9,7 +9,7 @@ export default function BlendingDetail() {
   const blends = [
       {
         id: 22,
-        name: "Signature Gold",
+        name: "시그니처 골드 Signature Gold",
         subtitle: "Warm & Balanced",
         desc: " 케냐 블렌딩 / 묵직한 바디감과 브라운 슈가와 아몬드의 달콤한 맛.",
         note: "Dark Cacao · Almond · Velvet Body",

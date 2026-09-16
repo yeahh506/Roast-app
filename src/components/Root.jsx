@@ -12,7 +12,7 @@ export default function Contact() {
       <section
         className="
           relative
-          h-[50vh]
+          h-[40vh] md:h-[50vh]
           flex
           items-center
           justify-center
@@ -39,7 +39,7 @@ export default function Contact() {
             Visit Us
           </p>
 
-          <h1 className="text-6xl font-bold mb-6">
+          <h1 className="text-4xl md:text-6xl font-bold mb-6">
             오시는 길
           </h1>
 
@@ -51,7 +51,7 @@ export default function Contact() {
       </section>
 
       {/* INFO */}
-      <section className="max-w-7xl mx-auto px-6 py-28">
+      <section className="max-w-7xl mx-auto px-5 md:px-6 py-16 md:py-28">
         <div className="grid lg:grid-cols-2 gap-16">
 
           {/* 지도 */}
@@ -59,12 +59,10 @@ export default function Contact() {
             <iframe
               title="map"
               src="https://maps.google.com/maps?q=송도%20G타워&t=&z=15&ie=UTF8&iwloc=&output=embed"
-              className="w-full h-[500px]"
+              className="w-full h-[300px] md:h-[500px]"
               loading="lazy"
             />
           </div>
-
-
 
           {/* 정보 */}
           <div className="flex flex-col justify-center">
@@ -73,7 +71,7 @@ export default function Contact() {
               Contact Information
             </p>
 
-            <h2 className="text-5xl font-bold mb-10 leading-tight">
+            <h2 className="text-3xl md:text-5xl font-bold mb-8 md:mb-10 leading-tight">
               당신의 하루를 위한
               <br />
               특별한 로스터리
@@ -81,7 +79,7 @@ export default function Contact() {
 
             <div className="space-y-8 text-white/70">
 
-              <div className="flex gap-5">
+              <div className="flex gap-4 md:gap-5">
                 <MapPin
                   size={24}
                   className="text-orange-300 mt-1"
@@ -92,10 +90,10 @@ export default function Contact() {
                     Address
                   </h3>
 
-                  <p>
-                    인천광역시 연수구 아트센터대로 175 
+                  <p className="break-keep">
+                    인천광역시 연수구 아트센터대로 175
                     <br />
-                     G-Tower 2층 HEAGIN
+                    G-Tower 2층 HEAGIN
                   </p>
                 </div>
               </div>
